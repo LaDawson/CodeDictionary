@@ -2,7 +2,7 @@
 
 <div class="row">
     {% for term in terms %}
-    {% if category_name == "CSS" %}   
+    {% if term.category_name == "CSS" %}
   <div class="row">
     <div class="col">
       <div class="card">
@@ -14,7 +14,8 @@
       </div>
     </div>
   </div>
-        {% endif %}
-        {% endfor %}
+    {% endif %}
+    {% endfor %}
+
 </div>
 {% endblock %}      

@@ -24,8 +24,14 @@ nav {
     padding: 0;
 }
 
+
 .card {
     background-color: #00BFFF;
     box-shadow: 5px 5px 10px black;
     border-radius: 10px;
+}
+
+.home-content{
+    float: left;
+    width: 50%;
 }

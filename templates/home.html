@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- CATEGORY SELECT -->
+
+<div class="col s6 home-content">
+  <div class="row">
+    {% for cat in categories %}
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-content white-text">
+            <span class="card-title"><strong>{{cat.category_name}}</strong> - Go to{{cat.category_name}} Definitions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- SIGN IN FORM -->
+
+<div class="col s6 home-content">
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+
+        <!-- USERNAME -->
+
+        <div class="input-field col">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate" />
+          <label for="icon_prefix">Username</label>
+        </div>
+
+        <!-- PASSWORD -->
+
+        <div class="input-field col">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="icon_telephone" type="tel" class="validate" />
+          <label for="icon_telephone">Password</label>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+
+        <div class="input-field col">
+            <a class="waves-effect waves-light btn">
+                <i class="material-icons left">done</i>
+                Login
+            </a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
