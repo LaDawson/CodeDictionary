@@ -13,9 +13,9 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_definitions')
-def get_definitions():
-    return render_template("definitions.html",
+@app.route('/get_htmldefinitions')
+def get_htmldefinitions():
+    return render_template("htmldefinitions.html",
                            terms=mongo.db.terms.find())
 
 

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"/>
     <title>My Code Dictionary</title>
 </head>
 
-<body>
-<h3>My Code Dictionary</h3>
-{% block content %} {% endblock %}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-</body>
+  <body>
 
+    <!-- NAV ELEMENT FROM MATERIALIZE -->
+    <header>
+        <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">My Code Dictionary</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{url_for('get_htmldefinitions')}}">Home</a></li>
+        <li><a href="badges.html">Create Term</a></li>
+        <li><a href="collapsible.html">Account</a></li>
+      </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- END OF NAV ELEMENT FROM MATERIALIZE -->
+
+    <!-- BLOCK CONTENT TAGS FOR TEMPLATES -->
+    {% block content %} {% endblock %}
+
+    <!-- SCRIPT TAGS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+         });
+    </script>
+  </body>
 </html>

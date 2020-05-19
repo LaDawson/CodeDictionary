@@ -1,0 +1,31 @@
+/* NAV BAR STYLING */
+
+.task_header {
+    margin-top: 5px;
+    margin-left: 10px
+}
+
+.brand-logo {
+    margin-left: 15px;
+}
+
+nav {
+    margin-bottom: 40px;
+    background-color: #00BFFF;
+    box-shadow: 0px 5px 5px black;
+}
+
+/* DEFINITION CARD STYLE */
+
+.row .col {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0;
+}
+
+.card {
+    background-color: #00BFFF;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 10px;
+}
