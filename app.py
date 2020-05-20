@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 @app.route('/get_categories')
 def get_categories():
     return render_template("home.html",
-    categories=mongo.db.categories.find())
+                           categories=mongo.db.categories.find())
 
 
 @app.route('/get_htmldefinitions')
@@ -29,6 +29,12 @@ def get_htmldefinitions():
 def get_cssdefinitions():
     return render_template("cssdefinitions.html",
                            terms=mongo.db.terms.find())
+
+
+@app.route('/add_definition')
+def add_definition():
+    return render_template("adddefinition.html",
+                           categories=mongo.db.categories.find())
 
 
 if __name__ == '__main__':

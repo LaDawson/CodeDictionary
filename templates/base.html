@@ -7,9 +7,7 @@
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"/>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='css/style.css')}}"
@@ -26,6 +24,7 @@
       <a href="{{url_for('get_categories')}}" class="brand-logo">My Code Dictionary</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{{url_for('get_categories')}}">Home</a></li>
+        <li><a href="{{url_for('add_definition')}}">Add Term</a></li>
         <li><a href="{{url_for('get_htmldefinitions')}}">HTML</a></li>
         <li><a href="{{url_for('get_cssdefinitions')}}">CSS</a></li>
       </ul>
@@ -39,12 +38,11 @@
 
     <!-- SCRIPT TAGS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, options);
-         });
+       $(document).ready(function(){
+       $('select').formSelect();
+       });
     </script>
   </body>
 </html>

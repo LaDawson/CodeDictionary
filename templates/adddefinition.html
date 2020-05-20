@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+
+      <!-- SELECT CATEGORY -->
+
+      <div class="row">
+        <div class="input-field col">
+          <i class="material-icons prefix">poll</i>
+          <select id="category" name="category_name">
+            <option value="" disabled selected>Choose Language</option>
+            {% for cat in categories %}
+            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+            {% endfor %}
+          </select>
+          <label>Coding Language</label>
+        </div>
+      </div>
+
+      <!-- TERM NAME -->
+
+      <div class="row">
+        <div class="input-field col">
+          <i class="material-icons prefix">label</i>
+          <input id="term_name" name="term_name" type="text" />
+          <label for="icon_prefix">Term</label>
+        </div>
+      </div>
+
+      <!-- TERM DESCRIPTION -->
+
+      <div class="row">
+        <div class="input-field col">
+          <i class="material-icons prefix">description</i>
+          <textarea
+            name="term_description"
+            id="term_description"
+            class="materialize-textarea"></textarea>
+          <label for="term_description">Term Description</label>
+        </div>
+      </div>
+
+      <!-- TERM EXAMPLE -->
+
+      <div class="row">
+        <div class="input-field col">
+          <i class="material-icons prefix">notes</i>
+          <textarea
+            name="term_use"
+            id="term_use"
+            class="materialize-textarea"></textarea>
+          <label for="term_use">Example of Use</label>
+        </div>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+
+      <div class="row">
+        <div class="input-field col">
+          <a class="waves-effect waves-light btn">
+            <i class="material-icons left">publish</i>
+            <strong>Sumbit</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
