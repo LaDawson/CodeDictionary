@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="row">
-  <form class="col s12">
+  <form action="" method="POST" class="col s12">
     <div class="row">
 
       <!-- SELECT CATEGORY -->
@@ -59,10 +59,12 @@
 
       <div class="row">
         <div class="input-field col">
+        <button type="submit" name="action">
           <a class="waves-effect waves-light btn">
             <i class="material-icons left">publish</i>
             <strong>Sumbit</strong>
           </a>
+          </button>
         </div>
       </div>
     </div>

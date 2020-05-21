@@ -6,12 +6,12 @@
   <div class="row">
     {% for cat in categories %}
     <div class="row">
-      <div class="col">
+      <div class="col"><a href="{{ url_for('get_category', category_id = cat._id)}}">
         <div class="card">
           <div class="card-content white-text">
             <span class="card-title"><strong>{{cat.category_name}}</strong> - Go to{{cat.category_name}} Definitions</span>
           </div>
-        </div>
+        </div></a>
       </div>
     </div>
     {% endfor %}
