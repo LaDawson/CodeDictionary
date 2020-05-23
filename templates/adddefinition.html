@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="row">
-  <form action="" method="POST" class="col s12">
+  <form action="{{ url_for('insert_definition') }}" method="POST" class="col s12">
     <div class="row">
 
       <!-- SELECT CATEGORY -->
@@ -21,13 +21,13 @@
 
       <!-- TERM NAME -->
 
-      <div class="row">
-        <div class="input-field col">
-          <i class="material-icons prefix">label</i>
-          <input id="term_name" name="term_name" type="text" />
-          <label for="icon_prefix">Term</label>
+     <div class="row">
+            <div class="input-field col">
+                <i class="material-icons prefix">label</i>
+                <input id="term_name" name="term_name" type="text">
+                <label for="icon_prefix">Term Name</label>
+            </div>
         </div>
-      </div>
 
       <!-- TERM DESCRIPTION -->
 

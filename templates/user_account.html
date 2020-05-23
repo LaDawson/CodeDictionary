@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+
+    {% for u in the_user %}
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-content white-text">
+          <span class="card-title"><strong>{{u.user_name}}</strong></span>
+          <br>
+          <p><strong>Email:</strong> {{u.user_email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+    
+</div>
+{% endblock %}      
