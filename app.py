@@ -20,8 +20,10 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/all_categories')
 def all_categories():
+    terms = mongo.db.terms.find()
     return render_template("home.html",
-                           categories=mongo.db.categories.find())
+                           categories=mongo.db.categories.find(),
+                           term=terms,)
 
 
 @app.route('/get_category/<category_id>')
@@ -30,9 +32,15 @@ def get_category(category_id):
     all_categories = mongo.db.categories.find()
     the_terms = mongo.db.terms.find()
     return render_template('category.html',
-                           categories=all_categories,
-                           cat=the_cat,
-                           term=the_terms)
+                            categories=all_categories,
+                            cat=the_cat,
+                            term=the_terms)
+    
+
+
+    """ THIS IS THE ROUTE FOR RENDERING THE ADD
+        DEFINITION PAGE AND ALSO THE ROUTE TO INSERT
+        THE DEFINITION TO THE DATABASE """
 
 
 @app.route('/add_definition')
@@ -63,7 +71,8 @@ def register():
                 hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
                 users.insert({'user_name': request.form['username'],
                               'user_password': hashed_password,
-                              'user_email': request.form['email']})
+                              'user_email': request.form['email'],
+                              'admin': 'no'})
                 session['username'] = request.form['username']
                 return redirect(url_for('all_categories'))
             return 'Passwords do not match'

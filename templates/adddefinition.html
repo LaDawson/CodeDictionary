@@ -15,19 +15,22 @@
             <option value="{{cat.category_name}}">{{cat.category_name}}</option>
             {% endfor %}
           </select>
-          <label>Coding Language</label>
         </div>
       </div>
+
 
       <!-- TERM NAME -->
 
      <div class="row">
-            <div class="input-field col">
-                <i class="material-icons prefix">label</i>
-                <input id="term_name" name="term_name" type="text">
-                <label for="icon_prefix">Term Name</label>
-            </div>
+        <div class="input-field col">
+          <i class="material-icons prefix">label</i>
+          <textarea
+            name="term_name"
+            id="term_name"
+            class="materialize-textarea"></textarea>
+          <label for="term_name">Term</label>
         </div>
+      </div>
 
       <!-- TERM DESCRIPTION -->
 
