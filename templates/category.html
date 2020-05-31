@@ -4,6 +4,7 @@
 
     {% for t in term %}
     {% if t.category_name == cat.category_name %}
+    {% if t.approved == "yes" %}
   <div class="row">
     <div class="col">
       <div class="card">
@@ -15,6 +16,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
     {% endif %}
     {% endfor %}
     

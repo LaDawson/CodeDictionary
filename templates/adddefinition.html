@@ -12,7 +12,7 @@
           <select id="category" name="category_name">
             <option value="" disabled selected>Choose Language</option>
             {% for cat in categories %}
-            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+            <option value="{{ cat.category_name }}">{{ cat.category_name }}</option>
             {% endfor %}
           </select>
         </div>
@@ -38,8 +38,8 @@
         <div class="input-field col">
           <i class="material-icons prefix">description</i>
           <textarea
-            name="term_description"
-            id="term_description"
+            name="definition"
+            id="definition"
             class="materialize-textarea"></textarea>
           <label for="term_description">Term Description</label>
         </div>
@@ -62,7 +62,7 @@
 
       <div class="row">
         <div class="input-field col">
-        <button type="submit" name="action">
+        <button type="submit" name="approved" value="no">
           <a class="waves-effect waves-light btn">
             <i class="material-icons left">publish</i>
             <strong>Sumbit</strong>
