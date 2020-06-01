@@ -13,15 +13,20 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
-""" THIS IS THE ROUTE FOR RENDERING THE HOME PAGE
-    WITH THE LIST OF CATEGORIES AND SIGN IN FORM """
+
+""" ROUTE THAT RENDERS THE HOME PAGE """
 
 
 @app.route('/')
 @app.route('/all_categories')
 def all_categories():
     return render_template("home.html",
-                           categories=mongo.db.categories.find())
+                           categories=mongo.db.categories.find()
+
+
+""" ROUTE WHICH SHOWS THE TERMS THAT BELONG TO
+THE CATEGORY CLICKED ON THE HOME PAGE """
+
 
 @app.route('/get_category/<category_id>')
 def get_category(category_id):
@@ -29,20 +34,21 @@ def get_category(category_id):
     all_categories = mongo.db.categories.find()
     the_terms = mongo.db.terms.find()
     return render_template('category.html',
-                            categories=all_categories,
-                            cat=the_cat,
-                            term=the_terms)
-    
+                           categories=all_categories,
+                           cat=the_cat,
+                           term=the_terms)
 
-    """ THIS IS THE ROUTE FOR RENDERING THE ADD
-        DEFINITION PAGE AND ALSO THE ROUTE TO INSERT
-        THE DEFINITION TO THE DATABASE """
+
+""" ROUTE FOR RENDERING ADD DEFINITION PAGE"""
 
 
 @app.route('/add_definition')
 def add_definition():
     return render_template("adddefinition.html",
                            categories=mongo.db.categories.find())
+
+
+""" ROUTE TAKING VALUES FROM FORM TO INSERT TERM TO DB """
 
 
 @app.route('/insert_definition', methods=['POST'])
@@ -52,7 +58,8 @@ def insert_definition():
     return redirect(url_for('all_categories'))
 
 
-""" REGISTER AND LOGIN ROUTES """
+""" REGISTE ROUTE FOR REGISTER NAV BUTTON
+AND REGISTER LINK FROM LOGIN FORMS """
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -61,10 +68,10 @@ def register():
         users = mongo.db.users
         existing_users = users.find_one({'user_name':
                                          request.form['username']})
-
         if existing_users is None:
             if request.form['password'] == request.form['repeat_password']:
-                hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+                hashed_password = bcrypt.hashpw(
+                    request.form['password'].encode('utf-8'), bcrypt.gensalt())
                 users.insert({'user_name': request.form['username'],
                               'user_password': hashed_password,
                               'user_email': request.form['email'],
@@ -74,6 +81,9 @@ def register():
             return 'Passwords do not match'
         return 'That username already exists!'
     return render_template('register.html')
+
+
+""" LOGIN ROUTE FOR THE LOGIN NAV BUTTON """
 
 
 @app.route('/login_main')
@@ -93,6 +103,9 @@ def login_mainlogin():
         return redirect(url_for('all_categories'))
 
     return 'Invalid username/password combination'
+
+
+""" LOGIN ROUTE FOR THE ADD TERM NAV BUTTON """
 
 
 @app.route('/login_page_addterm')
@@ -132,11 +145,14 @@ def admin_page():
     return redirect(url_for('all_categories'))
 
 
-@app.route('/update_term/<term_id>', methods=["POST"])
-def update_term(term_id):
+""" ADMIN APPROVE TERM ROUTE """
+
+
+@app.route('/approve_term/<term_id>', methods=['POST'])
+def approve_term(term_id):
     terms = mongo.db.terms
-    terms.update( {'_id': ObjectId(term_id)},
-    {
+    terms.update({'_id': ObjectId(term_id)},
+                 {
         'term_name': "",
         'category_name': "",
         'definition': "",
@@ -146,7 +162,14 @@ def update_term(term_id):
     return redirect(url_for('admin_page'))
 
 
+    """ ADMIN DELETE TERM ROUTE """
 
+
+@app.route('/delete_term/<term_id>')
+def delete_term(term_id):
+    terms = mongo.db.terms
+    terms.remove({'_id': ObjectId(term_id)})
+    return redirect(url_for('admin_page'))
 
 
 if __name__ == '__main__':
