@@ -21,11 +21,7 @@ mongo = PyMongo(app)
 @app.route('/all_categories')
 def all_categories():
     return render_template("home.html",
-                           categories=mongo.db.categories.find()
-
-
-""" ROUTE WHICH SHOWS THE TERMS THAT BELONG TO
-THE CATEGORY CLICKED ON THE HOME PAGE """
+                           categories=mongo.db.categories.find())
 
 
 @app.route('/get_category/<category_id>')
@@ -58,8 +54,7 @@ def insert_definition():
     return redirect(url_for('all_categories'))
 
 
-""" REGISTE ROUTE FOR REGISTER NAV BUTTON
-AND REGISTER LINK FROM LOGIN FORMS """
+""" REGISTE ROUTE FOR REGISTER NAV BUTTON AND REGISTER LINK FROM LOGIN FORMS """
 
 
 @app.route('/register', methods=['POST', 'GET'])
