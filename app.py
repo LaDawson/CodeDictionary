@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
@@ -73,8 +73,9 @@ def register():
                               'admin': 'no'})
                 session['username'] = request.form['username']
                 return redirect(url_for('all_categories'))
-            return 'Passwords do not match'
-        return 'That username already exists!'
+            flash('Passwords do not match')
+        else:
+            flash('That username already exists!')
     return render_template('register.html')
 
 
@@ -95,9 +96,10 @@ def login_mainlogin():
     if login_user:
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['user_password']) == login_user['user_password']:
             session['username'] = request.form['username']
+            session['admin_user'] = login_user['admin']
         return redirect(url_for('all_categories'))
-
-    return 'Invalid username/password combination'
+    else:
+        flash('Invalid password/username combination')
 
 
 """ LOGIN ROUTE FOR THE ADD TERM NAV BUTTON """
@@ -118,8 +120,8 @@ def login_addterm():
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['user_password']) == login_user['user_password']:
             session['username'] = request.form['username']
         return redirect(url_for('add_definition'))
-
-    return 'Invalid username/password combination'
+    else:
+        flash('Invalid password/username combination')
 
 
 """ ADMIN PAGE """
@@ -146,14 +148,8 @@ def admin_page():
 @app.route('/approve_term/<term_id>', methods=['POST'])
 def approve_term(term_id):
     terms = mongo.db.terms
-    terms.update({'_id': ObjectId(term_id)},
-                 {
-        'term_name': "",
-        'category_name': "",
-        'definition': "",
-        'term_use': "",
-        'approved': "yes"
-    })
+    terms.update_one({'_id': ObjectId(term_id)},
+                  {'$set': {'approved': "yes"}})
     return redirect(url_for('admin_page'))
 
 

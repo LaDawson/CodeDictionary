@@ -27,16 +27,27 @@
         <li><a href="{{url_for('login_page_addterm')}}">Add Term</a></li>
         <li><a href="{{url_for('login_main')}}">Login</a></li>
         <li><a href="{{url_for('register')}}">Register</a></li>
+        {% if session['admin_user'] == "yes" %}
         <li><a href="{{url_for('admin_page')}}">Admin</a></li>
-
+        {% endif %}
       </ul>
             </div>
         </nav>
+        {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
     </header>
     <!-- END OF NAV ELEMENT FROM MATERIALIZE -->
 
     <!-- BLOCK CONTENT TAGS FOR TEMPLATES -->
-    {% block content %} {% endblock %}
+    {% block content %}
+{% endblock %}
 
     <!-- SCRIPT TAGS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

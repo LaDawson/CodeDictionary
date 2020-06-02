@@ -1,23 +1,43 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <form method="POST" action="{{ url_for('login_addterm') }}">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Log In</button>
-            </form>
-            <br>
-            <div>
-                Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
-            </div>
+<div class="row form_position">
+  <div class="col form_col">
+    <form method="POST" action="{{ url_for('login_addterm') }}">
+      <div class="row form_size container">
+        <div class="input-field col form_input">
+          <i class="material-icons prefix">account_circle</i>
+          <input
+            id="username"
+            type="text"
+            class="validate"
+            name="username"
+            required/>
+          <label for="username">Username</label>
         </div>
+        <div class="input-field col form_input">
+          <i class="material-icons prefix">vpn_key</i>
+          <input
+            id="password"
+            type="password"
+            class="validate"
+            name="password"
+            required/>
+          <label for="password">Password</label>
+        </div>
+          <div class="input-field col form_button">
+            <button type="submit">
+              <a class="waves-effect waves-light btn">
+                <i class="material-icons left">login</i>
+                <strong>Login</strong>
+              </a>
+            </button>
+          </div>
+      </div>
+    </form>
+    <br/>
+    <div class="form_button">
+      Don't have an account?
+      <a href="{{ url_for('register') }}">Sign up here</a>.
     </div>
+  </div>
 </div>
 {% endblock %}

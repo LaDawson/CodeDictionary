@@ -18,14 +18,6 @@ nav {
 
 /* HOME PAGE STYLE */
 
-.row .col {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding: 0;
-}
-
-
 .card {
     background-color: #00BFFF;
     box-shadow: 5px 5px 10px black;
@@ -39,6 +31,55 @@ nav {
     margin-top: 50px;
 }
 
+/* LOGIN FORMS */
 
 
+button {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
 
+.form_position {
+    width: 60%;
+    padding: 0;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 100px;
+}
+
+.form_col {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.form_input {
+    float: left;
+    width: 40%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    margin-right: 0;
+}
+
+.form_button {
+    float: none;
+    width: 30%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-right: 0;
+}
+
+
+.form_size {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.col .row {
+    padding: 0;
+    margin: 0;
+}
