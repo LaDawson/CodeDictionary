@@ -12,21 +12,21 @@
       rel="stylesheet"
       href="{{url_for('static', filename='css/style.css')}}"
       type="text/css"/>
-    <title>My Code Dictionary</title>
+    <title>The Code Dictionary</title>
 </head>
 
-  <body class="background-image">
+  <body>
 
     <!-- NAV ELEMENT FROM MATERIALIZE -->
     <header>
         <nav>
     <div class="nav-wrapper">
-      <a href="{{url_for('all_categories')}}" class="brand-logo">My Code Dictionary</a>
+      <a href="{{url_for('all_categories')}}" class="brand-logo">The Code Dictionary</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{{url_for('all_categories')}}">Home</a></li>
-        <li><a href="{{url_for('login_page_addterm')}}">Add Term</a></li>
-        <li><a href="{{url_for('login_main')}}">Login</a></li>
-        <li><a href="{{url_for('register')}}">Register</a></li>
+        <li class="nav-list-item"><a href="{{url_for('all_categories')}}">Home</a></li>
+        <li class="nav-list-item"><a href="{{url_for('login_page_addterm')}}">Add Term</a></li>
+        <li class="nav-list-item"><a href="{{url_for('login_main')}}">Login</a></li>
+        <li class="nav-list-item"><a href="{{url_for('register')}}">Register</a></li>
         {% if session['admin_user'] == "yes" %}
         <li><a href="{{url_for('admin_page')}}">Admin</a></li>
         {% endif %}
@@ -48,6 +48,27 @@
     <!-- BLOCK CONTENT TAGS FOR TEMPLATES -->
     {% block content %}
 {% endblock %}
+
+  <footer class="page-footer">
+          <div class="container footer-container">
+            <div class="row footer-row">
+              <div class="col footer-text-col">
+                <h5 class="white-text">Sign Up!</h5>
+                <p class="grey-text text-lighten-4">You must register and be logged in to upload terms.</p>
+              </div>
+              <div class="col footer-text-col">
+                <h5 class="white-text">Terms</h5>
+                <p class="grey-text text-lighten-4">Submitted terms are checked before appearing on the site.</p>
+              </div>
+               <div class="col footer-text-col">
+                <h5 class="white-text">Contact</h5>
+                <p class="grey-text text-lighten-4">For queries contact lewisdawsonwebdev@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+
 
     <!-- SCRIPT TAGS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

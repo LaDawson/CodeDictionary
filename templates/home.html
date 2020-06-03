@@ -2,14 +2,16 @@
 
 <!-- CATEGORY SELECT -->
 
-<div class="col s9 home-content">
-  <div class="row">
+<div class="col s9">
+<h3 class="homepage-title">The Code Dictionary</h3>
+<h6 class="homepage-webdescription">A crowdsourced online code dictionary</h6>
+  <div class="row card-row-container">
     {% for cat in categories %}
-    <div class="row">
-      <div class="col"><a href="{{ url_for('get_category', category_id = cat._id)}}">
+    <div class="row card-row">
+      <div class="col card-link-container"><a href="{{ url_for('get_category', category_id = cat._id)}}">
         <div class="card">
           <div class="card-content white-text">
-            <span class="card-title"><strong>{{cat.category_name}}</strong> - Go to{{cat.category_name}} Definitions</span>
+            <span class="card-title"><strong>{{cat.category_name}}</strong> - Go to {{cat.category_name}} Terms</span>
           </div>
         </div></a>
       </div>

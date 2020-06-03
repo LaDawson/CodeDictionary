@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&family=Patua+One&display=swap');
+
+
 /* NAV BAR STYLING */
 
 .task_header {
@@ -7,6 +10,7 @@
 
 .brand-logo {
     margin-left: 15px;
+    font-family: 'Patua One', cursive;
 }
 
 nav {
@@ -15,20 +19,92 @@ nav {
     box-shadow: 0px 5px 5px black;
 }
 
+.nav-list-item {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.page-footer {
+    background-color: #00BFFF;
+    box-shadow: 0px -5px 5px black;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.footer-row {
+    padding: 0;
+    margin: 0;
+}
+
+.row .col.footer-text-col {
+    width: 33%;
+}
 
 /* HOME PAGE STYLE */
 
-.card {
-    background-color: #00BFFF;
-    box-shadow: 5px 5px 10px black;
-    border-radius: 10px;
+.homepage-title {
+    text-align: center;
+    padding: 0;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Patua One', cursive;
+
 }
 
-.home-content{
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 50px;
+.homepage-webdescription {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+
+
+.card-link-container {
+    width: 100%
+}
+
+.card {
+    background-color: #00BFFF;
+    box-shadow: 5px 5px 15px black;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    transition: background-color .3s ease-in-out
+}
+
+.card:hover {
+    background-color: #1E90FF;
+}
+
+.card-title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.col .row.card-row {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.col .row.card-row-container {
+    width:50%;
+    height: 50%;
+	position: relative;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 /* LOGIN FORMS */
@@ -71,15 +147,9 @@ button {
     margin-right: 0;
 }
 
-
 .form_size {
     width: 100%;
     margin: 0;
     padding: 0;
     text-align: center;
-}
-
-.col .row {
-    padding: 0;
-    margin: 0;
 }
