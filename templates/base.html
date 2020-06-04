@@ -1,82 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='css/style.css')}}"
       type="text/css"/>
     <title>The Code Dictionary</title>
-</head>
+  </head>
 
   <body>
-
     <!-- NAV ELEMENT FROM MATERIALIZE -->
     <header>
         <nav>
-    <div class="nav-wrapper">
-      <a href="{{url_for('all_categories')}}" class="brand-logo">The Code Dictionary</a>
-      <ul class="right hide-on-med-and-down">
-        <li class="nav-list-item"><a href="{{url_for('all_categories')}}">Home</a></li>
-        <li class="nav-list-item"><a href="{{url_for('login_page_addterm')}}">Add Term</a></li>
-        <li class="nav-list-item"><a href="{{url_for('login_main')}}">Login</a></li>
-        <li class="nav-list-item"><a href="{{url_for('register')}}">Register</a></li>
-        {% if session['admin_user'] == "yes" %}
-        <li><a href="{{url_for('admin_page')}}">Admin</a></li>
-        {% endif %}
-      </ul>
+            <div class="nav-wrapper">
+            <a href="{{url_for('all_categories')}}" class="brand-logo">The Code Dictionary</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="nav-list-item"><a href="{{url_for('all_categories')}}">Home</a></li>
+                <li class="nav-list-item"><a href="{{url_for('login_page_addterm')}}">Add Term</a></li>
+                <li class="nav-list-item"><a href="{{url_for('login_main')}}">Login</a></li>
+                <li class="nav-list-item"><a href="{{url_for('register')}}">Register</a></li>
+                {% if session['admin_user'] == "yes" %}
+                    <li class="nav-list-item"><a href="{{url_for('admin_page')}}">Admin</a></li>
+                    {% endif %}
+            </ul>
             </div>
         </nav>
-        {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class="flashes">
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+
+        <ul class="sidenav" id="mobile-demo">
+            <li class="nav-list-item"><a href="{{url_for('all_categories')}}">Home</a></li>
+            <li class="nav-list-item"><a href="{{url_for('login_page_addterm')}}">Add Term</a></li>
+            <li class="nav-list-item"><a href="{{url_for('login_main')}}">Login</a></li>
+            <li class="nav-list-item"><a href="{{url_for('register')}}">Register</a></li>
+            {% if session['admin_user'] == "yes" %}
+                    <li class="nav-list-item"><a href="{{url_for('admin_page')}}">Admin</a></li>
+                    {% endif %}
+        </ul>
+
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
     </header>
     <!-- END OF NAV ELEMENT FROM MATERIALIZE -->
 
     <!-- BLOCK CONTENT TAGS FOR TEMPLATES -->
-    {% block content %}
-{% endblock %}
+    {% block content %} {% endblock %}
 
-  <footer class="page-footer">
-          <div class="container footer-container">
-            <div class="row footer-row">
-              <div class="col footer-text-col">
-                <h5 class="white-text">Sign Up!</h5>
-                <p class="grey-text text-lighten-4">You must register and be logged in to upload terms.</p>
-              </div>
-              <div class="col footer-text-col">
-                <h5 class="white-text">Terms</h5>
-                <p class="grey-text text-lighten-4">Submitted terms are checked before appearing on the site.</p>
-              </div>
-               <div class="col footer-text-col">
-                <h5 class="white-text">Contact</h5>
-                <p class="grey-text text-lighten-4">For queries contact lewisdawsonwebdev@gmail.com</p>
-              </div>
-            </div>
+    <footer class="page-footer">
+      <div class="container footer-container">
+        <div class="row footer-row">
+          <div class="col footer-text-col">
+            <h5 class="white-text">Sign Up!</h5>
+            <p class="grey-text text-lighten-4">
+              You must register and be logged in to upload terms.
+            </p>
           </div>
-        </footer>
-
-
+          <div class="col footer-text-col">
+            <h5 class="white-text">Terms</h5>
+            <p class="grey-text text-lighten-4">
+              Submitted terms are checked before appearing on the site.
+            </p>
+          </div>
+          <div class="col footer-text-col">
+            <h5 class="white-text">Contact</h5>
+            <p class="grey-text text-lighten-4">
+              For queries contact lewisdawsonwebdev@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- SCRIPT TAGS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
-       $(document).ready(function(){
-       $('select').formSelect();
-       });
+      $(document).ready(function () {
+        $("select").formSelect();
+        $('.sidenav').sidenav();
+      });
     </script>
   </body>
 </html>
