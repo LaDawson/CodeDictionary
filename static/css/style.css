@@ -138,6 +138,41 @@ button {
     margin-right: 20%;
     margin-top: 100px;
 }
+@media (max-width: 800px) {
+    .form-position {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .row {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .input-field .prefix {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .btn i,
+    .btn-large i,
+    .btn-small i,
+    .btn-floating i,
+    .btn-large i,
+    .btn-small i,
+    .btn-flat i {
+        display: none;
+    }
+}
+
+
 
 .form_col {
     margin: 0;
@@ -145,27 +180,51 @@ button {
     width: 100%;
 }
 
-.form_input {
-    float: left;
+.row .col.form_input {
     width: 40%;
     margin-left: 10%;
     margin-bottom: 2%;
     margin-right: 0;
 }
 
-.form_button {
+@media (max-width: 1200px) {
+    .row .col.form_input {
+    width: 100%;
+    margin: 0 0 2% 0;
     float: none;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .input-field .prefix ~ input {
+        margin-left: 0;
+    }
+}
+
+.form_button {
     width: 30%;
-    margin-left: 5%;
+    margin-left: 35%;
     margin-bottom: 2%;
-    margin-right: 0;
+    margin-right: 35%;
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .form_size {
     width: 100%;
     margin: 0;
     padding: 0;
+}
+
+.row .col.form_no_account {
+        width: 50%;
+    margin-left: 25%;
+    margin-bottom: 2%;
+    margin-right: 35%;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* CATEGORY PAGE STYLES */
@@ -204,4 +263,9 @@ button {
 .term-title {
     font-family: 'Patua One', cursive;
     font-size: 18px;
+}
+
+.col .row {
+    margin-left: 0;
+    margin-right: 0;
 }
