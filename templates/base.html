@@ -17,7 +17,7 @@
     <title>The Code Dictionary</title>
   </head>
 
-  <body>
+  <body class="body-flex">
     <!-- NAV ELEMENT FROM MATERIALIZE -->
     <header>
         <nav>
@@ -57,7 +57,9 @@
     <!-- END OF NAV ELEMENT FROM MATERIALIZE -->
 
     <!-- BLOCK CONTENT TAGS FOR TEMPLATES -->
+    <div class="content">
     {% block content %} {% endblock %}
+    </div>
 
     <footer class="page-footer">
       <div class="container footer-container">
@@ -74,10 +76,10 @@
               Submitted terms are checked before appearing on the site.
             </p>
           </div>
-          <div class="col footer-text-col">
+          <div class="col footer-text-col contact-footer">
             <h5 class="white-text">Contact</h5>
             <p class="grey-text text-lighten-4">
-              For queries contact lewisdawsonwebdev@gmail.com
+              For queries contact: lewisdawsonwebdev@gmail.com
             </p>
           </div>
         </div>

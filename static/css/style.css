@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&family=Patua+One&display=swap');
 
 
-/* NAV BAR STYLING */
+/* NAV BAR AND FOOTER STYLING */
 
 .task_header {
     margin-top: 5px;
@@ -28,7 +28,7 @@ nav {
     box-shadow: 0px -5px 5px black;
     bottom: 0;
     left: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     margin-top: 40px;
     margin-bottom: 0;
@@ -46,6 +46,9 @@ nav {
     width: 33%;
 }
 
+.contact-footer {
+    word-break: break-word;
+}
 /* HOME PAGE STYLE */
 
 .homepage-title {
@@ -63,8 +66,6 @@ nav {
     padding: 0;
     margin-bottom: 25px;
 }
-
-
 
 .card-link-container {
     width: 100%
@@ -123,109 +124,13 @@ nav {
 
 /* LOGIN FORMS */
 
-
 button {
     border: none;
     background: transparent;
-    margin: 0;
+    margin: 2% 0 2% 0;
     padding: 0;
 }
 
-.form_position {
-    width: 60%;
-    padding: 0;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 100px;
-}
-@media (max-width: 800px) {
-    .form-position {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 800px) {
-    .row {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 800px) {
-    .input-field .prefix {
-        display: none;
-    }
-}
-
-@media (max-width: 800px) {
-    .btn i,
-    .btn-large i,
-    .btn-small i,
-    .btn-floating i,
-    .btn-large i,
-    .btn-small i,
-    .btn-flat i {
-        display: none;
-    }
-}
-
-
-
-.form_col {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.row .col.form_input {
-    width: 40%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    margin-right: 0;
-}
-
-@media (max-width: 1200px) {
-    .row .col.form_input {
-    width: 100%;
-    margin: 0 0 2% 0;
-    float: none;
-    }
-}
-
-
-@media (max-width: 800px) {
-    .input-field .prefix ~ input {
-        margin-left: 0;
-    }
-}
-
-.form_button {
-    width: 30%;
-    margin-left: 35%;
-    margin-bottom: 2%;
-    margin-right: 35%;
-    margin-top: 100px;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.form_size {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.row .col.form_no_account {
-        width: 50%;
-    margin-left: 25%;
-    margin-bottom: 2%;
-    margin-right: 35%;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-}
 
 /* CATEGORY PAGE STYLES */
 
@@ -268,4 +173,16 @@ button {
 .col .row {
     margin-left: 0;
     margin-right: 0;
+}
+
+
+
+.body-flex {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
 }
