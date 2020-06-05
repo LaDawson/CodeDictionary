@@ -9,16 +9,21 @@
     <div class="col term-card-col">
       <div class="card">
         <div class="card-content white-text">
-          <span class="card-title"><strong>{{t.term_name}}</strong> - {{t.category_name}}</span>
-          
-          <br>
-          <p class="term-text"><strong class="term-title">Definition:</strong> {{t.definition}}</p>
-          <hr class="term-hr">
-          <p class="term-text"><strong class="term-title">Example:</strong> {{t.term_use}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+                            <span class="card-title"><strong>{{t.term_name}}</strong> - {{t.category_name}}</span>
+                            <br>
+                            <p class="term-text">
+                                <strong class="term-title">Definition</strong>
+                                <hr class="term-hr"> {{t.definition}}
+                            </p>
+                            <br>
+                            <p class="term-text">
+                                <strong class="term-title">Example</strong>
+                                <hr class="term-hr"> {{t.term_use}}
+                            </p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
   {% endif %}
     {% endif %}
     {% endfor %}

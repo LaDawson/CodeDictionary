@@ -155,9 +155,8 @@ button {
 .term-hr {
     background-color: white;
     border: none;
-    width: 30%;
+    width: 75px;
     height: 1px;
-
 }
 
 .term-text {
@@ -175,7 +174,33 @@ button {
     margin-right: 0;
 }
 
+.approve-btn {
+    background-color: green;
+    font-family: 'Patua One', cursive;
+    color: white;
+    box-shadow: 3px 3px 5px black;
+    margin: 0 0 0 0;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
 
+.delete-btn {
+    background-color: #8B0000;
+    font-family: 'Patua One', cursive;
+    margin: 0 0 10px 0;
+    box-shadow: 3px 3px 5px black;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.approve-btn:hover {
+        background-color: #00FF00;
+        color: black;
+        box-shadow: 3px 3px 5px black;
+}
+
+.delete-btn:hover {
+        background-color: red;
+        box-shadow: 3px 3px 5px black;
+}
 
 .body-flex {
   display: flex;

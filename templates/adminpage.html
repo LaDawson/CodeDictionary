@@ -1,28 +1,41 @@
 {% extends 'base.html' %} {% block content %}
-
 <div class="row">
-
     {% for term in terms %}
-    {% if term.approved =="no" %}
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-content white-text">
-          <span class="card-title"><strong>{{term.term_name}}</strong> - {{term.category_name}}</span>
-          <br>
-          <p><strong>Definition:</strong> {{term.definition}}<hr><strong>Example:</strong> {{term.term_use}}</p>
-        </div>
-         <form action="{{ url_for('approve_term', term_id=term._id) }}" method="POST">
-        <button type="submit"><a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i></a>Approve</button>
-</form>
-<form action="{{ url_for('delete_term', term_id=term._id) }}">
-        <button type="submit"><a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i></a>Delete</button>
-</form>
-      </div>
-    </div>
-  </div>
-  {% endif %}
+        {% if term.approved =="no" %}
+            <div class="row term-card">
+                <div class="col term-card-col">
+                    <div class="card">
+                        <div class="card-content white-text">
+                            <span class="card-title"><strong>{{term.term_name}}</strong> - {{term.category_name}}</span>
+                            <br>
+                            <p class="term-text">
+                                <strong class="term-title">Definition</strong>
+                                <hr class="term-hr"> {{term.definition}}
+                            </p>
+                            <br>
+                            <p class="term-text">
+                                <strong class="term-title">Example</strong>
+                                <hr class="term-hr"> {{term.term_use}}
+                            </p>
+                        </div>
+                        <form class="form-button" action="{{ url_for('approve_term', term_id=term._id) }}" method="POST">
+                            <button type="submit">
+                                <a class="btn approve-btn">
+                                    <i class="material-icons left">thumb_up_alt</i>Approve
+                                </a>
+                            </button>
+                        </form>
+                        <form class="form-button" action="{{ url_for('delete_term', term_id=term._id) }}">
+                            <button type="submit">
+                                <a class="btn delete-btn">
+                                    <i class="material-icons left">delete_forever</i>Delete
+                                </a>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
-    
 </div>
-{% endblock %}      
+{% endblock %}
