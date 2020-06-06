@@ -3,6 +3,7 @@
 
 /* NAV BAR AND FOOTER STYLING */
 
+
 .task_header {
     margin-top: 5px;
     margin-left: 10px
@@ -49,7 +50,10 @@ nav {
 .contact-footer {
     word-break: break-word;
 }
+
+
 /* HOME PAGE STYLE */
+
 
 .homepage-title {
     text-align: center;
@@ -67,9 +71,21 @@ nav {
     margin-bottom: 25px;
 }
 
+.hr-home {
+    width: 200px;
+    height: 2px;
+    background-color: black;
+    margin-bottom: 60px;
+    border: none;
+}
+
 .card-link-container {
     width: 100%
 }
+
+
+/* CARD STYLES */
+
 
 .card {
     background-color: #00BFFF;
@@ -108,21 +124,28 @@ nav {
 	margin: auto;
 }
 
-@media (max-width: 1320px) {
-    .col .row.card-row-container {
-        width: 100%;
-    }
+.term-hr {
+    background-color: white;
+    border: none;
+    width: 75px;
+    height: 1px;
 }
 
-.hr-home {
-    width: 200px;
-    height: 2px;
-    background-color: black;
-    margin-bottom: 60px;
-    border: none;
+.term-text {
+    font-family: 'Open Sans', sans-serif;
+    word-break: break-word;
 }
+
+
+.term-title {
+    font-family: 'Patua One', cursive;
+    font-size: 18px;
+    word-break: break-word;
+}
+
 
 /* LOGIN FORMS */
+
 
 button {
     border: none;
@@ -134,39 +157,15 @@ button {
 
 /* CATEGORY PAGE STYLES */
 
+
 .row .term-card {
     width: 40%;
     float: left;
     margin: 30px 5% 0 5%;
 }
 
-@media (max-width: 1200px) {
-    .row .term-card {
-        width: 80%;
-        float: none;
-        margin: 30px 10% 0 10%;
-    }
-}
-
 .row .col.term-card-col {
     width: 100%;
-}
-
-.term-hr {
-    background-color: white;
-    border: none;
-    width: 75px;
-    height: 1px;
-}
-
-.term-text {
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-.term-title {
-    font-family: 'Patua One', cursive;
-    font-size: 18px;
 }
 
 .col .row {
@@ -174,19 +173,22 @@ button {
     margin-right: 0;
 }
 
+
+/* ADMIND PAGE STYYLES */
+
+
 .approve-btn {
     background-color: green;
     font-family: 'Patua One', cursive;
     color: white;
     box-shadow: 3px 3px 5px black;
-    margin: 0 0 0 0;
+    margin: 0;
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
 .delete-btn {
     background-color: #8B0000;
     font-family: 'Patua One', cursive;
-    margin: 0 0 10px 0;
     box-shadow: 3px 3px 5px black;
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
@@ -201,6 +203,28 @@ button {
         background-color: red;
         box-shadow: 3px 3px 5px black;
 }
+
+
+/* Media Queries */
+
+
+@media (max-width: 1320px) {
+    .col .row.card-row-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .row .term-card {
+        width: 80%;
+        float: none;
+        margin: 30px 10% 0 10%;
+    }
+}
+
+
+/* Website mobile sizing fix */
+
 
 .body-flex {
   display: flex;

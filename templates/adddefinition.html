@@ -1,77 +1,59 @@
 {% extends 'base.html' %} {% block content %}
-
-<div class="row">
-  <form action="{{ url_for('insert_definition') }}" method="POST" class="col s12">
+<div class="container">
     <div class="row">
+        <div class="col s12">
+            <form action="{{ url_for('insert_definition') }}" method="POST">
 
-      <!-- SELECT CATEGORY -->
+            <!-- SELECT CATEGORY -->
 
-      <div class="row">
-        <div class="input-field col">
-          <i class="material-icons prefix">poll</i>
-          <select id="category" name="category_name">
-            <option value="" disabled selected>Choose Language</option>
-            {% for cat in categories %}
-            <option value="{{ cat.category_name }}">{{ cat.category_name }}</option>
-            {% endfor %}
-          </select>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="category" name="category_name" required>
+                        <option value="" disabled selected>Choose Language</option>
+                        {% for cat in categories %}
+                            <option value="{{ cat.category_name }}">{{ cat.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            <!-- TERM NAME -->
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">label</i>
+                    <textarea name="term_name" id="term_name" class="materialize-textarea" required></textarea>
+                    <label for="term_name">Term</label>
+                </div>
+
+            <!-- TERM DESCRIPTION -->
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">description</i>
+                    <textarea name="definition" id="definition" class="materialize-textarea" required></textarea>
+                    <label for="definition">Term Description</label>
+                </div>
+
+            <!-- TERM EXAMPLE -->
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">notes</i>
+                    <textarea name="term_use" id="term_use" class="materialize-textarea" required></textarea>
+                    <label for="term_use">Example of Use</label>
+                </div>
+
+            <!-- SUBMIT BUTTON -->
+
+                <div class="input-field col s12">
+                    <button type="submit" name="approved" value="no">
+                        <a class="waves-effect waves-light btn">
+                            <i class="material-icons left">publish</i>
+                            <strong>Sumbit</strong>
+                        </a>
+                    </button>
+                </div>
+            </form>
         </div>
-      </div>
-
-
-      <!-- TERM NAME -->
-
-     <div class="row">
-        <div class="input-field col">
-          <i class="material-icons prefix">label</i>
-          <textarea
-            name="term_name"
-            id="term_name"
-            class="materialize-textarea"></textarea>
-          <label for="term_name">Term</label>
-        </div>
-      </div>
-
-      <!-- TERM DESCRIPTION -->
-
-      <div class="row">
-        <div class="input-field col">
-          <i class="material-icons prefix">description</i>
-          <textarea
-            name="definition"
-            id="definition"
-            class="materialize-textarea"></textarea>
-          <label for="term_description">Term Description</label>
-        </div>
-      </div>
-
-      <!-- TERM EXAMPLE -->
-
-      <div class="row">
-        <div class="input-field col">
-          <i class="material-icons prefix">notes</i>
-          <textarea
-            name="term_use"
-            id="term_use"
-            class="materialize-textarea"></textarea>
-          <label for="term_use">Example of Use</label>
-        </div>
-      </div>
-
-      <!-- SUBMIT BUTTON -->
-
-      <div class="row">
-        <div class="input-field col">
-        <button type="submit" name="approved" value="no">
-          <a class="waves-effect waves-light btn">
-            <i class="material-icons left">publish</i>
-            <strong>Sumbit</strong>
-          </a>
-          </button>
-        </div>
-      </div>
     </div>
-  </form>
 </div>
-
 {% endblock %}
+
+

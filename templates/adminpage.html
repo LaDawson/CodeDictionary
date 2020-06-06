@@ -6,28 +6,43 @@
                 <div class="col term-card-col">
                     <div class="card">
                         <div class="card-content white-text">
+
+                        <!-- CARD TITLE -->
+
                             <span class="card-title"><strong>{{term.term_name}}</strong> - {{term.category_name}}</span>
                             <br>
+
+                        <!-- CARD DEFINITION -->
+
                             <p class="term-text">
                                 <strong class="term-title">Definition</strong>
                                 <hr class="term-hr"> {{term.definition}}
                             </p>
                             <br>
+
+                        <!-- CARD EXAMPLE -->
+
                             <p class="term-text">
                                 <strong class="term-title">Example</strong>
                                 <hr class="term-hr"> {{term.term_use}}
                             </p>
                         </div>
+
+                    <!-- APPROVE BUTTON -->
+
                         <form class="form-button" action="{{ url_for('approve_term', term_id=term._id) }}" method="POST">
                             <button type="submit">
-                                <a class="btn approve-btn">
+                                <a class="btn approve-btn waves-effect waves-light">
                                     <i class="material-icons left">thumb_up_alt</i>Approve
                                 </a>
                             </button>
                         </form>
+
+                    <!-- DELETE BUTTON -->
+                        
                         <form class="form-button" action="{{ url_for('delete_term', term_id=term._id) }}">
                             <button type="submit">
-                                <a class="btn delete-btn">
+                                <a class="btn delete-btn waves-effect waves-light">
                                     <i class="material-icons left">delete_forever</i>Delete
                                 </a>
                             </button>

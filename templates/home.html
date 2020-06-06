@@ -1,24 +1,36 @@
 {% extends 'base.html' %} {% block content %}
-
-<!-- CATEGORY SELECT -->
-
 <div class="col s9">
-<h3 class="homepage-title">Code Dictionary</h3>
-<h6 class="homepage-webdescription">A crowdsourced online code dictionary</h6>
-<hr class="hr-home">
-  <div class="row card-row-container">
-    {% for cat in categories %}
-    <div class="row card-row">
-      <div class="col card-link-container"><a href="{{ url_for('get_category', category_id = cat._id)}}">
-        <div class="card">
-          <div class="card-content white-text">
-            <span class="card-title"><strong>{{cat.category_name}}</strong> - Go to {{cat.category_name}} Terms</span>
-          </div>
-        </div></a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div>
 
+<!-- PAGE TITLE AND DESCRIPTION-->
+
+    <h3 class="homepage-title">Code Dictionary</h3>
+    <h6 class="homepage-webdescription">A crowdsourced online code dictionary</h6>
+    <hr class="hr-home">
+
+<!-- CATEGORY CARDS -->
+
+    <div class="row card-row-container">
+        {% for cat in categories %}
+            <div class="row card-row">
+                <div class="col card-link-container">
+    
+                <!-- CATEGORY LINK -->
+
+                    <a href="{{ url_for('get_category', category_id = cat._id)}}">
+                        <div class="card">
+                            <div class="card-content white-text">
+    
+                            <!-- CATEGORY NAME -->
+
+                                <span class="card-title"><strong>{{cat.category_name}}
+                                    </strong> - Go to {{cat.category_name}} Terms
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
