@@ -20,13 +20,11 @@
                     <a href="{{url_for('all_categories')}}" class="brand-logo">Code Dictionary</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-{% if session['username'] %}
-                    <li class="nav-list-item">
-                                <a class="logged-in-as">Logged in as: {{ session['username'] }}</a>
+                        {% if session['username'] %}
+                            <li class="nav-list-item">
+                                <a class="logged-in-as">User: {{ session['username'] }}</a>
                             </li>
-                            {% endif %}
-
-
+                        {% endif %}
                         <li class="nav-list-item">
                             <a href="{{url_for('all_categories')}}">Home</a>
                         </li>
@@ -38,7 +36,7 @@
                                 <a href="{{url_for('login_main')}}">Login</a>
                             </li>
                             <li class="nav-list-item">
-                                <a href="{{url_for('register')}}">Register</a>
+                                <a href="{{url_for('register')}}">Sign Up</a>
                             </li>
                         {% endif %}
                         {% if session['username'] %}
@@ -58,6 +56,11 @@
         <!-- MOBILE NAV ELEMENT FROM MATERIALIZE -->
 
             <ul class="sidenav" id="mobile-demo">
+                {% if session['username'] %}
+                    <li class="nav-list-item">
+                        <a class="logged-in-as">User: {{ session['username'] }}</a>
+                    </li>
+                {% endif %}
                 <li class="nav-list-item">
                     <a href="{{url_for('all_categories')}}">Home</a>
                 </li>
@@ -69,7 +72,7 @@
                         <a href="{{url_for('login_main')}}">Login</a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="{{url_for('register')}}">Register</a>
+                        <a href="{{url_for('register')}}">Sign Up</a>
                     </li>
                 {% endif %}
                 {% if session['username'] %}
@@ -108,7 +111,7 @@
             <div class="container footer-container">
                 <div class="row footer-row">
                     <div class="col footer-text-col">
-                        <h5 class="white-text">Sign Up!</h5>
+                        <h5 class="white-text"><a class="sign-up-footer" href="{{url_for('login_main')}}">Sign Up!</a></h5>
                         <p class="grey-text text-lighten-4">You must register and be logged in to upload terms.</p>
                     </div>
                     <div class="col footer-text-col">
