@@ -74,6 +74,7 @@ def register():
                 session['username'] = request.form['username']
                 return redirect(url_for('all_categories'))
             flash('Passwords do not match')
+            return render_template('register.html')
         else:
             flash('That username already exists!')
     return render_template('register.html')
@@ -100,6 +101,7 @@ def login_mainlogin():
         return redirect(url_for('all_categories'))
     else:
         flash('Invalid password/username combination')
+        return render_template('mainloginroute.html')
 
 
 """ LOGIN ROUTE FOR THE ADD TERM NAV BUTTON """
@@ -122,6 +124,7 @@ def login_addterm():
         return redirect(url_for('add_definition'))
     else:
         flash('Invalid password/username combination')
+        return render_template('login_addterm.html')
 
 
 """ ADMIN PAGE """
