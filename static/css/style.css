@@ -235,8 +235,9 @@ button {
 
 @media only screen and (max-width: 992px) {
 nav .brand-logo {
-    width: 60%;
+    width: 80%;
     left: 50%;
+    text-align: center;
 }
 }
 
