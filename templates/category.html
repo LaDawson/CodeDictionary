@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row">
-    {% for t in term %}
-        {% if t.category_name == cat.category_name %}
-            {% if t.approved == "yes" %}
+    {% for term in terms %}
+        {% if term.category_name == cat.category_name %}
+            {% if term.approved == "yes" %}
                 <div class="row term-card">
                     <div class="col term-card-col">
                         <div class="card">
@@ -10,14 +10,14 @@
 
                             <!-- CARD TITLE -->
 
-                                <span class="card-title"><strong>{{t.term_name}}</strong> - {{t.category_name}}</span>
+                                <span class="card-title"><strong>{{term.term_name}}</strong> - {{term.category_name}}</span>
                                 <br>
 
                             <!-- CARD DEFINITION -->
 
                                 <p class="term-text">
                                     <strong class="term-title">Definition</strong>
-                                    <hr class="term-hr">{{t.definition}}
+                                    <hr class="term-hr">{{term.definition}}
                                 </p>
                                 <br>
 
@@ -25,7 +25,7 @@
 
                                 <p class="term-text">
                                     <strong class="term-title">Example</strong>
-                                    <hr class="term-hr">{{t.term_use}}
+                                    <hr class="term-hr">{{term.term_use}}
                                 </p>
                             </div>
                         </div>

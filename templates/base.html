@@ -20,18 +20,32 @@
                     <a href="{{url_for('all_categories')}}" class="brand-logo">Code Dictionary</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
+{% if session['username'] %}
+                    <li class="nav-list-item">
+                                <a class="logged-in-as">Logged in as: {{ session['username'] }}</a>
+                            </li>
+                            {% endif %}
+
+
                         <li class="nav-list-item">
                             <a href="{{url_for('all_categories')}}">Home</a>
                         </li>
                         <li class="nav-list-item">
                             <a href="{{url_for('login_page_addterm')}}">Add Term</a>
                         </li>
-                        <li class="nav-list-item">
-                            <a href="{{url_for('login_main')}}">Login</a>
-                        </li>
-                        <li class="nav-list-item">
-                            <a href="{{url_for('register')}}">Register</a>
-                        </li>
+                        {% if not session['username'] %}
+                            <li class="nav-list-item">
+                                <a href="{{url_for('login_main')}}">Login</a>
+                            </li>
+                            <li class="nav-list-item">
+                                <a href="{{url_for('register')}}">Register</a>
+                            </li>
+                        {% endif %}
+                        {% if session['username'] %}
+                            <li class="nav-list-item">
+                                <a href="{{url_for('logout')}}">Logout</a>
+                            </li>
+                        {% endif %}
                         {% if session['admin_user'] == "yes" %}
                             <li class="nav-list-item">
                                 <a href="{{url_for('admin_page')}}">Admin</a>
@@ -50,12 +64,19 @@
                 <li class="nav-list-item">
                     <a href="{{url_for('login_page_addterm')}}">Add Term</a>
                 </li>
-                <li class="nav-list-item">
-                    <a href="{{url_for('login_main')}}">Login</a>
-                </li>
-                <li class="nav-list-item">
-                    <a href="{{url_for('register')}}">Register</a>
-                </li>
+                {% if not session['username'] %}
+                    <li class="nav-list-item">
+                        <a href="{{url_for('login_main')}}">Login</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="{{url_for('register')}}">Register</a>
+                    </li>
+                {% endif %}
+                {% if session['username'] %}
+                    <li class="nav-list-item">
+                        <a href="{{url_for('logout')}}">Logout</a>
+                    </li>
+                {% endif %}
                 {% if session['admin_user'] == "yes" %}
                 <li class="nav-list-item">
                     <a href="{{url_for('admin_page')}}">Admin</a>
@@ -108,8 +129,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-            $("select").formSelect();
-            $(".sidenav").sidenav();
+                $("select").formSelect();
+                $(".sidenav").sidenav();
             });
         </script>
     </body>

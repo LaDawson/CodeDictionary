@@ -32,7 +32,7 @@ def get_category(category_id):
     return render_template('category.html',
                            categories=all_categories,
                            cat=the_cat,
-                           term=the_terms)
+                           terms=the_terms)
 
 
 """ ROUTE FOR RENDERING ADD DEFINITION PAGE"""
@@ -40,8 +40,10 @@ def get_category(category_id):
 
 @app.route('/add_definition')
 def add_definition():
-    return render_template("adddefinition.html",
-                           categories=mongo.db.categories.find())
+    if 'username' in session:
+        return render_template("adddefinition.html",
+                               categories=mongo.db.categories.find())
+    return redirect(url_for('login_main'))
 
 
 """ ROUTE TAKING VALUES FROM FORM TO INSERT TERM TO DB """
@@ -49,9 +51,11 @@ def add_definition():
 
 @app.route('/insert_definition', methods=['POST'])
 def insert_definition():
-    term = mongo.db.terms
-    term.insert_one(request.form.to_dict())
-    return redirect(url_for('all_categories'))
+    if 'username' in session:
+        term = mongo.db.terms
+        term.insert_one(request.form.to_dict())
+        return redirect(url_for('all_categories'))
+    return redirect(url_for('login_main'))
 
 
 """ REGISTE ROUTE FOR REGISTER NAV BUTTON AND REGISTER LINK FROM LOGIN FORMS """
@@ -61,9 +65,9 @@ def insert_definition():
 def register():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_users = users.find_one({'user_name':
+        existing_user = users.find_one({'user_name':
                                          request.form['username']})
-        if existing_users is None:
+        if existing_user is None:
             if request.form['password'] == request.form['repeat_password']:
                 hashed_password = bcrypt.hashpw(
                     request.form['password'].encode('utf-8'), bcrypt.gensalt())
@@ -74,7 +78,6 @@ def register():
                 session['username'] = request.form['username']
                 return redirect(url_for('all_categories'))
             flash('Passwords do not match')
-            return render_template('register.html')
         else:
             flash('That username already exists!')
     return render_template('register.html')
@@ -101,7 +104,7 @@ def login_mainlogin():
         return redirect(url_for('all_categories'))
     else:
         flash('Invalid password/username combination')
-        return render_template('mainloginroute.html')
+    return render_template('mainloginroute.html')
 
 
 """ LOGIN ROUTE FOR THE ADD TERM NAV BUTTON """
@@ -121,10 +124,11 @@ def login_addterm():
     if login_user:
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['user_password']) == login_user['user_password']:
             session['username'] = request.form['username']
+            session['admin_user'] = login_user['admin']
         return redirect(url_for('add_definition'))
     else:
         flash('Invalid password/username combination')
-        return render_template('login_addterm.html')
+    return render_template('login_addterm.html')
 
 
 """ ADMIN PAGE """
@@ -152,11 +156,11 @@ def admin_page():
 def approve_term(term_id):
     terms = mongo.db.terms
     terms.update_one({'_id': ObjectId(term_id)},
-                  {'$set': {'approved': "yes"}})
+                     {'$set': {'approved': "yes"}})
     return redirect(url_for('admin_page'))
 
 
-    """ ADMIN DELETE TERM ROUTE """
+""" ADMIN DELETE TERM ROUTE """
 
 
 @app.route('/delete_term/<term_id>')
@@ -164,6 +168,15 @@ def delete_term(term_id):
     terms = mongo.db.terms
     terms.remove({'_id': ObjectId(term_id)})
     return redirect(url_for('admin_page'))
+
+
+@app.route('/logout')
+def logout():
+    if 'username' in session:
+        del session['username']
+        if session['admin_user'] == "yes":
+            del session['admin_user']
+    return redirect(url_for('all_categories'))
 
 
 if __name__ == '__main__':
