@@ -35,7 +35,7 @@ def get_category(category_id):
                            terms=the_terms)
 
 
-""" ROUTE FOR RENDERING ADD DEFINITION PAGE"""
+""" ROUTE FOR RENDERING ADD DEFINITION PAGE """
 
 
 @app.route('/add_definition')
@@ -58,7 +58,7 @@ def insert_definition():
     return redirect(url_for('login_main'))
 
 
-""" REGISTE ROUTE FOR REGISTER NAV BUTTON AND REGISTER LINK FROM LOGIN FORMS """
+""" REGISTER ROUTE FOR REGISTER NAV BUTTON AND REGISTER LINK FROM LOGIN FORMS """
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -66,7 +66,7 @@ def register():
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'user_name':
-                                         request.form['username']})
+                                        request.form['username']})
         if existing_user is None:
             if request.form['password'] == request.form['repeat_password']:
                 hashed_password = bcrypt.hashpw(
@@ -170,16 +170,21 @@ def delete_term(term_id):
     return redirect(url_for('admin_page'))
 
 
+""" LOGOUT ROUTE """
+
+
 @app.route('/logout')
 def logout():
+    users = mongo.db.users
+    the_user = users.find_one({'user_name': session['username']})
+    if the_user['admin'] == "yes":
+        del session['admin_user']
     if 'username' in session:
         del session['username']
-        if session['admin_user'] == "yes":
-            del session['admin_user']
     return redirect(url_for('all_categories'))
 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)

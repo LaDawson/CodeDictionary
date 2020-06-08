@@ -6,7 +6,7 @@
 
 .task_header {
     margin-top: 5px;
-    margin-left: 10px
+    margin-left: 10px;
 }
 
 .brand-logo {
@@ -26,7 +26,7 @@ nav {
 
 .logged-in-as {
     cursor: default;
-     pointer-events: none;
+    pointer-events: none;
 }
 
 .page-footer {
@@ -72,7 +72,6 @@ nav {
     margin-top: 40px;
     margin-bottom: 20px;
     font-family: 'Patua One', cursive;
-
 }
 
 .homepage-webdescription {
@@ -91,7 +90,7 @@ nav {
 }
 
 .card-link-container {
-    width: 100%
+    width: 100%;
 }
 
 
@@ -104,7 +103,7 @@ nav {
     border-radius: 10px;
     width: 100%;
     text-align: center;
-    transition: background-color .3s ease-in-out
+    transition: background-color .3s ease-in-out;
 }
 
 .card-hover:hover {
@@ -148,12 +147,12 @@ nav {
 .col .row.card-row-container {
     width:50%;
     height: 50%;
-	position: relative;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
+    position: relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 
@@ -207,14 +206,14 @@ button {
 }
 
 .approve-btn:hover {
-        background-color: #00FF00;
-        color: black;
-        box-shadow: 3px 3px 5px black;
+    background-color: #00FF00;
+    color: black;
+    box-shadow: 3px 3px 5px black;
 }
 
 .delete-btn:hover {
-        background-color: red;
-        box-shadow: 3px 3px 5px black;
+    background-color: red;
+    box-shadow: 3px 3px 5px black;
 }
 
 
@@ -263,11 +262,11 @@ nav .brand-logo {
 
 
 .body-flex {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .content {
-  flex: 1;
+    flex: 1;
 }
